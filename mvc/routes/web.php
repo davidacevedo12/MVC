@@ -2,16 +2,22 @@
 
 use Lib\Route;
 
-Route::get('/', function () {
-    echo "hola desde la pagina principal";
-});
+use App\Controllers\HomeController;
+
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/contact', function () {
-    echo "hola desde la pagina principal";
+    return 'hola desde la pagina principal';
 });
 
 Route::get('/about', function () {
-    echo "hola desde la pagina principal";
+   return 'hola desde la pagina principal';
 });
+
+Route::get('/courses/:slug', function($slug) {
+    return 'el curso es:' .$slug;
+
+});
+
 
 Route:: dispatch();
